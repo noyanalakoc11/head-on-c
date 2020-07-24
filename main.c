@@ -11,29 +11,43 @@ int main()
 {
 
     char cardName[3];
-    puts("Enter the card name: ");
-    scanf("%2s", cardName);
-    int val = 0;
+    int count = 0;
 
-    switch(cardName[0])
+    while(cardName[0] != 'X')
     {
-    case 'K':
-    case 'Q':
-    case 'J':
-        val = 10;
-        break;
-    case 'A':
-        val = 11;
-        break;
-    default:
-        val = atoi(cardName);
-        break;
+         puts("Enter the card name: ");
+
+        scanf("%2s", cardName);
+
+        int val = 0;
+
+        switch(cardName[0])
+        {
+        case 'K':
+        case 'Q':
+        case 'J':
+            val = 10;
+            break;
+        case 'A':
+            val = 11;
+            break;
+        case 'X':
+            continue;
+        default:
+            val = atoi(cardName);
+            if(val < 1 || val > 10)
+            {
+                puts("I don't understand that value!");
+                continue;
+            }
+        }
+        if(val < 7 && val > 2)
+            count++;
+        else if( val == 10 )
+            count--;
+        printf("Current count: %d\n", count);
     }
 
-    if(val < 7 && val > 2)
-        puts("The count has gone up.");
-    else if( val == 10 )
-        puts("The count has gone down.");
 
     return 0;
 }
