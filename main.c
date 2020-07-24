@@ -41,7 +41,7 @@ int main()
                 continue;
             }
         }
-        if(val < 7 && val > 2)
+        if( val > 2 && val < 7 )
             count++;
         else if( val == 10 )
             count--;
